@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
  *
  * @author randika-lakmal
  */
-@Component
-@Profile({"default","english"})
+//@Component
+//@Profile({"default","english"})
 public class HelloWorldEnglish implements HelloWorldService{
 
     @Override

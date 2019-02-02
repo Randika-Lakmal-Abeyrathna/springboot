@@ -13,8 +13,8 @@ import org.springframework.stereotype.Component;
  * @author randika-lakmal
  */
 
-@Component
-@Profile("spanish")
+//@Component
+//@Profile("spanish")
 public class HelloWorldSpanish  implements HelloWorldService{
 
     @Override
