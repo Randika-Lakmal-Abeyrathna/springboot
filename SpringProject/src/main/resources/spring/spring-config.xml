@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <context:component-scan base-package="com.randika.src"/>
+    
+    <bean id="greetingController" class="com.randika.src.controllers.GreetingController" />
+    
+    <bean id="helloWorldFactory" class="com.randika.src.servicers.HelloWorldFactory"/>
+    
+    <bean id="srilankan" factory-bean="helloWorldFactory" factory-method="createHelloworldService">
+        <constructor-arg value="sl"/>
+    </bean>
+    
+    <bean id="german" factory-bean="helloWorldFactory" factory-method="createHelloworldService">
+        <constructor-arg value="gr"/>
+    </bean>
+    
+    <beans profile="english">
+        <bean id="helloWorldDefault" factory-bean="helloWorldFactory" factory-method="createHelloworldService" primary="true">
+            <constructor-arg value="en"/>
+        </bean>
+    </beans>
+    <beans profile="spanish">
+        <bean id="helloWorldDefault" factory-bean="helloWorldFactory" factory-method="createHelloworldService" primary="true">
+            <constructor-arg value="sp"/>
+        </bean>
+    </beans>
+    
+</beans>
